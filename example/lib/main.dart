@@ -242,7 +242,9 @@ class TaskRouteState extends State<TaskRoute> {
                 title: Text('No devices found'),
                 actions: <Widget>[
                   TextButton(
-                    onPressed: () => Navigator.of(context)..pop()..pop(),
+                    onPressed: () => Navigator.of(context)
+                      ..pop()
+                      ..pop(),
                     child: Text('OK'),
                   ),
                 ],
@@ -309,7 +311,7 @@ class TaskRouteState extends State<TaskRoute> {
                 onLongPress: copyValue(context, 'BSSID', result.bssid),
                 child: Row(
                   children: <Widget>[
-                    Text('BSSID: ', style: textTheme.bodyText1),
+                    Text('BSSID: ', style: textTheme.bodyLarge),
                     Text(result.bssid,
                         style: TextStyle(fontFamily: 'monospace')),
                   ],
@@ -319,7 +321,7 @@ class TaskRouteState extends State<TaskRoute> {
                 onLongPress: copyValue(context, 'IP', result.ip),
                 child: Row(
                   children: <Widget>[
-                    Text('IP: ', style: textTheme.bodyText1),
+                    Text('IP: ', style: textTheme.bodyLarge),
                     Text(result.ip, style: TextStyle(fontFamily: 'monospace')),
                   ],
                 ),
@@ -501,6 +503,7 @@ class OptionalIntegerTextField extends StatelessWidget {
 
         final v = int.tryParse(value, radix: 10);
         if (v == null) return 'Please enter an integer number';
+        return null;
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
